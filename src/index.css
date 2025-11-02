@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Lexend", sans-serif;
+}
+
+body::selection {
+  background-color: #ea7527;
+  color: #ffffff;
+}
+
+.rotatenow {
+  rotate: -17.55deg;
+  margin-left: 50px;
+}
+
+.downhalf {
+  margin-bottom: -40%;
+}
+
+.loader-container {
+  @apply w-screen h-screen flex justify-center items-center;
+}
+
+.spinner {
+  @apply relative w-48 h-48;
+}
+
+.spinner::before {
+  content: "";
+  @apply absolute top-0 left-0 w-48 h-48 border-4 border-transparent rounded-full;
+  border-top-color: #ea7527;
+  border-right-color: #ea7527;
+  animation: spin 1s linear infinite;
+}
+
+.logo-wrapper {
+  @apply absolute inset-0 flex justify-center items-center;
+  animation: pulseScale 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseScale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: #fff;
+  }
+  .bg2 {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Light mode styles */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+  .bg2 {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
