@@ -4,7 +4,7 @@ import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Textarea from "../components/ui/Textarea";
 import type { FormEvent, ChangeEvent } from "react";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import {
   githubProfile,
   isValidEmail,
@@ -13,6 +13,7 @@ import {
   isValidPhoneNumber,
   linkendinProfile,
   npmProfile,
+  phone,
   xProfile,
 } from "../utility";
 
@@ -20,6 +21,7 @@ import {
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiNpm } from "react-icons/si";
 import { Link } from "react-router-dom";
+import { Phone } from "lucide-react";
 
 export default function ContactUs() {
   const [form, setForm] = useState({
@@ -98,12 +100,12 @@ export default function ContactUs() {
       <div className="grid lg:grid-cols-3 pt-10 max-w-6xl mx-auto gap-4 px-4">
         {/* Contact Info + Social Links */}
         <div className="lg:col-span-1  px-4 sm:px-12 py-12 rounded-xl order-last lg:order-first">
-          <h3 className="font-semibold lg:text-left text-center text-xl mb-6">
+          <h3 className="font-semibold lg:text-left text-xl mb-6">
             Get In Touch
           </h3>
 
           <ul className="flex flex-col gap-10">
-            <li className="flex items-center gap-3 hover:text-blue-500 transition-colors">
+            <li className="flex items-center gap-3 text-blue-500 transition-colors">
               <FaGithub className="text-2xl" />
               <Link
                 to={githubProfile.url}
@@ -114,7 +116,7 @@ export default function ContactUs() {
                 GitHub: {githubProfile.username}
               </Link>
             </li>
-            <li className="flex items-center gap-3 hover:text-red-500 transition-colors">
+            <li className="flex items-center gap-3 text-red-500 transition-colors">
               <SiNpm className="text-2xl" />
               <Link
                 to={npmProfile.url}
@@ -125,7 +127,7 @@ export default function ContactUs() {
                 NPM: {npmProfile.usename}
               </Link>
             </li>
-            <li className="flex items-center gap-3 hover:text-blue-600 transition-color">
+            <li className="flex items-center gap-3 text-blue-600 transition-color">
               <FaLinkedin className="text-2xl" />
               <Link
                 to={linkendinProfile.url}
@@ -136,7 +138,7 @@ export default function ContactUs() {
                 LinkedIn: {linkendinProfile.username}
               </Link>
             </li>
-            <li className="flex items-center gap-3 hover:text-blue-400 transition-colors">
+            <li className="flex items-center gap-3 text-blue-400 transition-colors">
               <FaXTwitter className="text-2xl" />
               <Link
                 to={xProfile.url}
@@ -145,6 +147,28 @@ export default function ContactUs() {
                 className=""
               >
                 X / Twitter: {xProfile.username}
+              </Link>
+            </li>
+            <li className="flex items-center gap-3 text-green-400 transition-colors">
+              <FaWhatsapp className="text-2xl" />
+              <Link
+                to={`https://wa.me/${phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className=""
+              >
+                Whatsapp: {phone}
+              </Link>
+            </li>
+            <li className="flex items-center gap-3 text-orange-400 transition-colors">
+              <Phone className="text-2xl" />
+              <Link
+                to={`tel:${phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className=""
+              >
+                Call: {phone}
               </Link>
             </li>
           </ul>
@@ -185,7 +209,6 @@ export default function ContactUs() {
             <div className="md:col-span-2">
               <Input
                 name="contact"
-                type="text"
                 value={form.contact}
                 onChange={handleChange}
                 placeholder="Email or Phone Number"
@@ -202,7 +225,7 @@ export default function ContactUs() {
                 name="message"
                 value={form.message}
                 onChange={handleChange}
-                placeholder="Tell us why ..."
+                placeholder="Type here ..."
                 autoComplete="off"
                 label="Message:"
                 rows={6}

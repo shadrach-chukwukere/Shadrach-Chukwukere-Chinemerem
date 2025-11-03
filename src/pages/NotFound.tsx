@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
 import { AlertTriangle, Home, Mail } from "lucide-react";
 import Button from "../components/ui/Button";
+import { generalYellow } from "../utility";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-[#0f0f0f] text-white relative">
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative">
       {/* 404 Icon */}
       <div className="mb-6 flex items-center justify-center"></div>
 
       <h1 className="text-6xl md:text-8xl font-bold mb-2 flex items-center justify-center gap-4">
         4
-        <div className="bg-white/10 p-6 rounded-full flex items-center justify-center animate-pulse">
-          <AlertTriangle className="text-yellow-400 w-16 h-16" />
+        <div className="p-6 rounded-full flex items-center justify-center animate-pulse">
+          <AlertTriangle className="w-16 h-16" color={generalYellow} />
         </div>
         4
       </h1>

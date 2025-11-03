@@ -1,22 +1,51 @@
-import phoneImage from "@/assets/89d6c4aca85aa504fb8ebf4007082bf3bcc269d8.webp";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import { Code } from "lucide-react";
+import { FaLinkedin, FaWhatsapp } from "react-icons/fa6";
+import { SiNpm } from "react-icons/si";
+import { linkendinProfile, npmProfile, phone } from "../utility";
+import { Link } from "react-router-dom";
 export default function Hero() {
   return (
-    <section className="w-full  ">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-start gap-4">
+    <section className="w-full pb-16 ">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-4">
         {/* Right Phone Image */}
         <div
           className="flex order-first order-last"
           style={{ justifySelf: "center", placeSelf: "center" }}
         >
-          <LazyLoadImage
-            effect="blur"
-            src={phoneImage}
-            alt="App Phone"
-            loading="lazy"
-            className="w-64 md:w-[350px] object-contain"
-          />
+          <div className="">
+            <Code
+              className="w-64 md:w-[350px] h-auto object-contain "
+              size={640}
+            />
+            <div className="flex gap-6" style={{ justifySelf: "center" }}>
+              <Link
+                to={linkendinProfile.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="s"
+              >
+                <FaLinkedin
+                  size={35}
+                  className="cursor-pointer text-blue-500"
+                />
+              </Link>
+              <Link to={`https://wa.me/${phone}`}>
+                <FaWhatsapp
+                  size={35}
+                  className="cursor-pointer text-green-500"
+                />
+              </Link>
+
+              <Link
+                to={npmProfile.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className=""
+              >
+                <SiNpm size={35} className="cursor-pointer text-red-500" />
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Left Content */}

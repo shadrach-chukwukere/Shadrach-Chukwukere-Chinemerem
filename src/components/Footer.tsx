@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "./ui/Logo";
+import { phone, scroll } from "../utility";
+import { Phone } from "lucide-react";
 
 export default function Footer() {
+  const link = useLocation().pathname;
   return (
     <footer className="border-t border-[#726F6F] shadow-md">
       <div className="max-w-6xl mx-auto px-6 py-10">
@@ -15,15 +18,24 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center sm:justify-end gap-8 text-sm">
             <Link
               to={"/contact"}
-              className="hover:underline cursor-pointer transition-colors duration-200"
+              className={`${link == "/contact" && "text-[#EA7527]"}`}
             >
               Contact
             </Link>
             <Link
               to={"/projects"}
-              className="hover:underline cursor-pointer transition-colors duration-200"
+              className={`${link == "/projects" && "text-[#EA7527]"}`}
             >
               Projects
+            </Link>
+
+            <Link
+              to={`tel:${phone}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className=""
+            >
+              <Phone className="text-2xl" />
             </Link>
           </div>
 

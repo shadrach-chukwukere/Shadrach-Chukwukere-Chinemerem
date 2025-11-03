@@ -14,7 +14,7 @@ interface Project {
   description: string;
   image?: string;
   github?: string;
-  demo?: string;
+  visit?: string;
   icon?: ReactNode;
 }
 
@@ -25,7 +25,7 @@ const projects: Project[] = [
     description:
       "A modern crypto trading platform built with React, Node.js, and Tailwind CSS. Includes real-time price charts and secure transactions.",
     github: `${githubProfile.url}/MyLibrary`,
-    demo: npmProfile.url,
+    visit: npmProfile.url,
     icon: <RiNpmjsFill className="object-cover min-w-70 h-56" color="red" />,
   },
   {
@@ -35,7 +35,7 @@ const projects: Project[] = [
       "A responsive Website that connects people freely, making love and companionship simple, safe, and meaningful.",
     image: image,
     github: `${githubProfile.url}/huntgame`,
-    demo: "https://hunt-game-pied.vercel.app/",
+    visit: "https://hunt-game-pied.vercel.app/",
   },
   {
     id: 3,
@@ -44,42 +44,42 @@ const projects: Project[] = [
       "A responsive Website to Buy, sell, and manage crypto your way with Chekbit — the secure, peer-to-peer trading platform that gives you full control over your assets.",
     image: chekbitImage,
     github: `${githubProfile.url}/chekbit`,
-    demo: "https://chekbit.vercel.app/",
+    visit: "https://chekbit.vercel.app/",
   },
 ];
 
 export default function Projects() {
   const [search, setSearch] = useState("");
 
-  const filteredProjects = projects.filter(
+  const filteredProjects = projects?.filter(
     (project) =>
-      project.title.toLowerCase().includes(search.toLowerCase()) ||
-      project.description.toLowerCase().includes(search.toLowerCase())
+      project?.title.toLowerCase().includes(search.toLowerCase()) ||
+      project?.description.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div className="pb-20 pt-8 max-w-7xl mx-auto px-4">
       {/* Header with right-aligned search */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center flex-wrap gap-4 justify-between mb-8">
         <h1 className="text-xl sm:text-2xl font-semibold">My Projects</h1>
         <div className="relative">
           <Input
-            type="text"
+            type="search"
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-40 sm:w-56 px-3 py-2 pr-10 rounded-lg border border-gray-600 text-white"
+            className="w-40 sm:w-56 px-3 py-2 pl-10 rounded-lg border border-gray-600"
           />
-          <Search className="absolute top-3 right-3" />
+          <Search className="absolute top-3 left-3" />
         </div>
       </div>
 
       {/* Projects Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredProjects.length > 0 ? (
-          filteredProjects.map((project) => (
+        {filteredProjects?.length > 0 ? (
+          filteredProjects?.map((project) => (
             <div
-              key={project.id}
+              key={project?.id}
               className="rounded-xl overflow-hidden shadow-md flex flex-col bg2"
             >
               <div
@@ -101,20 +101,20 @@ export default function Projects() {
                     }}
                   />
                 ) : (
-                  project.icon
+                  project?.icon
                 )}
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <h2 className="text-lg sm:text-xl font-semibold mb-2 truncate">
-                  {project.title}
+                  {project?.title}
                 </h2>
                 <p className="text-sm mb-4 flex-1 line-clamp-3">
-                  {project.description}
+                  {project?.description}
                 </p>
                 <div className="flex gap-4 mt-auto">
-                  {project.github && (
+                  {project?.github && (
                     <a
-                      href={project.github}
+                      href={project?.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-blue-500 hover:underline"
@@ -122,14 +122,14 @@ export default function Projects() {
                       <FaGithub /> GitHub
                     </a>
                   )}
-                  {project.demo && (
+                  {project?.visit && (
                     <a
-                      href={project.demo}
+                      href={project?.visit}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-green-500 hover:underline"
                     >
-                      <FaExternalLinkAlt /> Live Demo
+                      <FaExternalLinkAlt /> Visit
                     </a>
                   )}
                 </div>
@@ -137,7 +137,7 @@ export default function Projects() {
             </div>
           ))
         ) : (
-          <p className="text-center col-span-full text-gray-400">
+          <p className="text-center col-span-full text-gray-400 min-h-100">
             No projects found.
           </p>
         )}

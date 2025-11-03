@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { X, Menu, Mail } from "lucide-react";
 import Button from "./ui/Button";
 import Logo from "./ui/Logo";
@@ -7,6 +7,8 @@ import { mail } from "../utility";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const link = useLocation().pathname;
+  console.log(link);
 
   return (
     <header
@@ -22,15 +24,30 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-10">
-          <Link to="/" className="hover:text-gray-300 transition">
+          <Link
+            to="/"
+            className={`hover:scale-[1.05] hover:border-[#EA7527] border-transparent border-b-2 transition ${
+              link == "/" && "text-[#EA7527]"
+            }`}
+          >
             Portfolio
           </Link>
 
-          <Link to="/contact" className="hover:text-gray-300 transition">
+          <Link
+            to="/contact"
+            className={`hover:scale-[1.05] hover:border-[#EA7527] border-transparent border-b-2 transition ${
+              link == "/contact" && "text-[#EA7527]"
+            }`}
+          >
             Contact
           </Link>
 
-          <Link to="/projects" className="hover:text-gray-300 transition">
+          <Link
+            to="/projects"
+            className={`hover:scale-[1.05] hover:border-[#EA7527] border-transparent border-b-2 transition ${
+              link == "/projects" && "text-[#EA7527]"
+            }`}
+          >
             Projects
           </Link>
 
@@ -79,7 +96,7 @@ export default function Header() {
         <div className="flex justify-between w-full px-5 py-5">
           <Logo />
           <button
-            className="p-2 hover:bg-gray-800 rounded-full"
+            className="p-2 rounded-full"
             onClick={() => setIsOpen(false)}
             aria-label="Close menu"
           >

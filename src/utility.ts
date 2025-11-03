@@ -43,7 +43,7 @@ export const isValidEnquiryType = (type: string): boolean => {
 };
 
 export const mail = "shadrachchukwukerechinemerem@gmail.com";
-export const phone = +2349038030895;
+export const phone = "+2349038030895";
 export const mail2 = "chispecialshadrach@gmail.com";
 export const beekleandroid =
   "https://play.google.com/store/apps/details?id=io.beekle";
@@ -68,3 +68,5 @@ export const xProfile = {
   username: "Shadrach chukwukere",
   url: "https://x.com/ShadrachCh75389",
 };
+
+export const scroll = () => window.scrollTo({ top: 0, behavior: "smooth" });
