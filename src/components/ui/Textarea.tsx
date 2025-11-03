@@ -16,6 +16,7 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   onClearError?: () => void;
   onClearSuccess?: () => void;
   required?: boolean;
+  id?: string;
   children?: ReactNode;
 }
 
@@ -33,6 +34,7 @@ export default function Textarea({
   onChange,
   onClearError,
   onClearSuccess,
+  id,
   required,
   ...props
 }: TextareaProps) {
@@ -60,6 +62,7 @@ export default function Textarea({
         value={value}
         required={required}
         placeholder={placeholder}
+        id={id || name}
         rows={rows}
         disabled={disabled}
         readOnly={readOnly}

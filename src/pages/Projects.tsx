@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import chekbitImage from "@/assets/chekbit.webp";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import image from "../assets/37d36618868024d8ff36564ae2376b65b2e4999d.webp";
 import { Search } from "lucide-react";
+import { RiNpmjsFill } from "react-icons/ri";
+import { githubProfile, npmProfile } from "../utility";
+import Input from "../components/ui/Input";
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   github?: string;
   demo?: string;
+  icon?: ReactNode;
 }
 
 const projects: Project[] = [
@@ -19,35 +24,37 @@ const projects: Project[] = [
     title: "Crypto Trading App",
     description:
       "A modern crypto trading platform built with React, Node.js, and Tailwind CSS. Includes real-time price charts and secure transactions.",
-    image: image,
-    github: "https://github.com/yourusername/crypto-app",
-    demo: "https://crypto-app.example.com",
+    github: `${githubProfile.url}/MyLibrary`,
+    demo: npmProfile.url,
+    icon: <RiNpmjsFill className="object-cover min-w-70 h-56" color="red" />,
   },
   {
     id: 2,
-    title: "E-commerce Website",
+    title: "HuntGame Website",
     description:
-      "A responsive e-commerce web application using Next.js, React, and Stripe for payment processing.",
+      "A responsive Website that connects people freely, making love and companionship simple, safe, and meaningful.",
     image: image,
-    github: "https://github.com/yourusername/ecommerce",
-    demo: "https://ecommerce.example.com",
+    github: `${githubProfile.url}/huntgame`,
+    demo: "https://hunt-game-pied.vercel.app/",
   },
   {
-    id: 2,
-    title: "Online Medications",
+    id: 3,
+    title: "Chekbit — Trade Crypto Securely and Instantly",
     description:
-      "A responsive e-commerce web application using Next.js, React, and Stripe for payment processing.",
-    image: image,
-    github: "https://github.com/yourusername/ecommerce",
-    demo: "https://ecommerce.example.com",
+      "A responsive Website to Buy, sell, and manage crypto your way with Chekbit — the secure, peer-to-peer trading platform that gives you full control over your assets.",
+    image: chekbitImage,
+    github: `${githubProfile.url}/chekbit`,
+    demo: "https://chekbit.vercel.app/",
   },
 ];
 
 export default function Projects() {
   const [search, setSearch] = useState("");
 
-  const filteredProjects = projects.filter((project) =>
-    project.title.toLowerCase().includes(search.toLowerCase())
+  const filteredProjects = projects.filter(
+    (project) =>
+      project.title.toLowerCase().includes(search.toLowerCase()) ||
+      project.description.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -56,14 +63,14 @@ export default function Projects() {
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-xl sm:text-2xl font-semibold">My Projects</h1>
         <div className="relative">
-          <input
+          <Input
             type="text"
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-40 sm:w-56 px-3 py-2 pr-10 rounded-lg border border-gray-600 bg-[#1a1a1a] text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-40 sm:w-56 px-3 py-2 pr-10 rounded-lg border border-gray-600 text-white"
           />
-          <Search className="absolute top-2.5 right-3" />
+          <Search className="absolute top-3 right-3" />
         </div>
       </div>
 
@@ -75,13 +82,27 @@ export default function Projects() {
               key={project.id}
               className="rounded-xl overflow-hidden shadow-md flex flex-col bg2"
             >
-              <div className="w-full h-56 overflow-hidden relative">
-                <LazyLoadImage
-                  src={project.image}
-                  alt={project.title}
-                  effect="blur"
-                  className="w-full h-full object-cover"
-                />
+              <div
+                className="h-56 overflow-hidden relative flex justify-center items-center object-cover"
+                style={{
+                  backgroundPositionX: "center",
+                  backgroundPositionY: "center",
+                }}
+              >
+                {project?.image ? (
+                  <LazyLoadImage
+                    src={project?.image}
+                    alt="chekbitImage"
+                    effect="blur"
+                    className="object-cover min-w-56"
+                    style={{
+                      backgroundPositionX: "center",
+                      backgroundPositionY: "center",
+                    }}
+                  />
+                ) : (
+                  project.icon
+                )}
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <h2 className="text-lg sm:text-xl font-semibold mb-2 truncate">

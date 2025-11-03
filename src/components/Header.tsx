@@ -71,7 +71,7 @@ export default function Header() {
 
       {/* Mobile Fullscreen Dropdown */}
       <div
-        className={`fixed inset-0  z-[600] flex flex-col transition-transform duration-200 ease-in-out ${
+        className={`fixed inset-0  z-[600] flex flex-col transition-transform bg3 duration-200 ease-in-out ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -88,13 +88,21 @@ export default function Header() {
         </div>
 
         {/* Centered Menu Items */}
-        <nav className="flex-1 flex flex-col items-center justify-center gap-10 text-lg font-medium">
+        <nav className="flex-1 flex flex-col items-center justify-center gap-12 text-lg font-medium">
           <Link
-            to="/contactUs"
+            to="/contact"
             onClick={() => setIsOpen(false)}
             className="hover:text-gray-400 transition"
           >
-            Contact Us
+            Contact
+          </Link>
+
+          <Link
+            to="/projects"
+            onClick={() => setIsOpen(false)}
+            className="hover:text-gray-400 transition"
+          >
+            Projects
           </Link>
 
           <Button

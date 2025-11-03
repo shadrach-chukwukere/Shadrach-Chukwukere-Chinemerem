@@ -62,7 +62,7 @@ export default function Input({
         type={type}
         value={value}
         required={required}
-        id={id}
+        id={id || name}
         placeholder={placeholder}
         disabled={disabled}
         readOnly={readOnly}
