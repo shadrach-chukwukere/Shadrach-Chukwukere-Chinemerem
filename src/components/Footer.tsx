@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import Logo from "./ui/Logo";
-import { phone, scroll } from "../utility";
+import { phone } from "../utility";
 import { Phone } from "lucide-react";
 
 export default function Footer() {
