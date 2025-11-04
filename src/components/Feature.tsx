@@ -1,7 +1,7 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import webImage from "@/assets/Front-End-3D-Ce7qoDuQ.png";
-import mobileImage from "@/assets/4315311-CWIE9QdU.png";
-import serverImage from "@/assets/4568175-veoqPQsT.png";
+import webImage from "@/assets/web.webp";
+import mobileImage from "@/assets/app.webp";
+import serverImage from "@/assets/server.webp";
 
 export default function Feature() {
   return (
