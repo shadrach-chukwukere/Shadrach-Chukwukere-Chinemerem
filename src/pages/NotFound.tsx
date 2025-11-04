@@ -9,7 +9,7 @@ export default function NotFound() {
       {/* 404 Icon */}
       <div className="mb-6 flex items-center justify-center"></div>
 
-      <h1 className="text-6xl md:text-8xl font-bold mb-2 flex items-center justify-center gap-4">
+      <h1 className="text-7xl md:text-8xl font-bold mb-2 flex items-center justify-center gap-4">
         4
         <div className="p-6 rounded-full flex items-center justify-center animate-pulse">
           <AlertTriangle className="w-16 h-16" color={generalYellow} />

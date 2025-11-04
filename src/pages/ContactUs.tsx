@@ -97,7 +97,7 @@ export default function ContactUs() {
     <div className="pb-20 pt-12">
       <h1 className="font-bold text-3xl text-center">Contact Us</h1>
 
-      <div className="grid lg:grid-cols-3 pt-10 max-w-6xl mx-auto gap-4 px-4">
+      <div className="grid lg:grid-cols-3 pt-10 max-w-7xl mx-auto gap-4 px-4">
         {/* Contact Info + Social Links */}
         <div className="lg:col-span-1  px-4 sm:px-12 py-12 rounded-xl order-last lg:order-first">
           <h3 className="font-semibold lg:text-left text-xl mb-6">

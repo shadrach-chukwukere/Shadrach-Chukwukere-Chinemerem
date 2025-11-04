@@ -9,7 +9,7 @@ export default function Banner() {
   return (
     <div className="py-20">
       <div
-        className="relative mx-auto max-w-6xl rounded-lg shadow-lg overflow-hidden"
+        className="relative mx-auto max-w-7xl rounded-lg shadow-lg overflow-hidden"
         style={{
           backgroundImage: `url(${beekleImage})`,
           backgroundSize: "contain",
@@ -20,7 +20,7 @@ export default function Banner() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="relative p-10 sm:px-10 px-4 space-y-5 max-w-6xl mx-auto text-white">
+        <div className="relative p-10 sm:px-10 px-4 space-y-5 max-w-7xl mx-auto text-white">
           <span className="absolute top-2 left-5">Advert :</span>
           <h2 className="sm:text-[42px] text-3xl font-extrabold text-center">
             Trade Crypto Smarter with{" "}

@@ -7,7 +7,7 @@ export default function Footer() {
   const link = useLocation().pathname;
   return (
     <footer className="border-t border-[#726F6F] shadow-md">
-      <div className="max-w-6xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-10 flex-wrap text-center sm:text-left">
           {/* Logo */}
           <div className="flex justify-center sm:justify-start w-full sm:w-auto">

@@ -1,15 +1,15 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import webImage from "@/assets/150f59704ef52355498df91a15f4ac67cc6f3d54.webp";
-import mobileImage from "@/assets/bda8c20a08da3689fa0aea39cd3a915c34e710a4.webp";
-import serverImage from "@/assets/6975bf473fbbd8d9c2c6d07549f172e156dd56c4.webp";
+import webImage from "@/assets/Front-End-3D-Ce7qoDuQ.png";
+import mobileImage from "@/assets/4315311-CWIE9QdU.png";
+import serverImage from "@/assets/4568175-veoqPQsT.png";
 
 export default function Feature() {
   return (
     <div>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="grid grid-cols-1 gap-5 py-6 px-6">
-          <div className="max-w-6xl mx-auto text-center md:text-left space-y-4">
+          <div className="max-w-7xl mx-auto text-center md:text-left space-y-4">
             <div className="font-semibold text-2xl sm:text-3xl">
               Precision, Creativity & Scalable Engineering
             </div>
@@ -38,25 +38,30 @@ export default function Feature() {
           {/* Web Development */}
           <div className="space-y-6 col-span-1 max-h-full">
             <div
-              className="bg-green-800 max-h-[640px] p-5 min-h-full space-y-4 object-cover overflow-hidden"
+              className="bg-green-800 max-h-[640px] p-5 min-h-full flex flex-col justify-between"
               style={{ backgroundColor: "var(--web-bg)" }}
             >
-              <div className="font-medium text-lg">Web Development</div>
-              <div className="text-sm font-light">
-                I create modern, high-performance web experiences using
-                technologies like React, Next.js, and Tailwind CSS. My focus is
-                on building visually stunning interfaces that are both
-                accessible and scalable — ensuring seamless navigation and
-                top-tier responsiveness across all devices.
+              {/* Text Section */}
+              <div className="space-y-4">
+                <div className="font-medium text-lg">Web Development</div>
+                <div className="text-sm font-light">
+                  I create modern, high-performance web experiences using
+                  technologies like React, Next.js, and Tailwind CSS. My focus
+                  is on building visually stunning interfaces that are both
+                  accessible and scalable — ensuring seamless navigation and
+                  top-tier responsiveness across all devices.
+                </div>
               </div>
-              <div className="rotatenow lg:-mb-[100%] sm:-mb-[50%] -mb-[70%]">
+
+              {/* Image Section */}
+              <div className="flex-1 flex items-center justify-center mt-4">
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
                   fetchPriority="high"
                   src={webImage}
                   decoding="async"
-                  className="max-w-[400px] min-h-[802px]"
+                  className="max-h-full object-contain"
                   alt="Web development illustration"
                 />
               </div>
@@ -69,7 +74,7 @@ export default function Feature() {
               className=" xl:p-0 p-5 bg-blue-800 overflow-hidden object-cover h-1/2"
               style={{ backgroundColor: "var(--mobile-bg)" }}
             >
-              <div className="flex max-w-2xl justify-between sm:flex-nowrap flex-wrap mx-auto items-center">
+              <div className="flex max-w-2xl h-full justify-between sm:flex-nowrap flex-wrap mx-auto items-center">
                 <div className="space-y-5">
                   <h3 className="font-medium text-lg">
                     Mobile App Development
@@ -82,11 +87,13 @@ export default function Feature() {
                     experience to users on both Android and iOS.
                   </p>
                 </div>
-                <div className="sm:-mb-[40%] -mb-[100%]">
-                  <img
+                <div className="">
+                  <LazyLoadImage
+                    effect="blur"
                     fetchPriority="high"
                     loading="eager"
                     src={mobileImage}
+                    className="min-w-[260px] sm:min-w-[320px] md:min-w-[320px] object-contain"
                     alt="Mobile development illustration"
                   />
                 </div>
@@ -98,7 +105,7 @@ export default function Feature() {
               className=" xl:p-0 p-5 bg-red-800 overflow-hidden object-cover h-1/2"
               style={{ backgroundColor: "var(--server-bg)" }}
             >
-              <div className="flex max-w-2xl justify-between sm:flex-nowrap flex-wrap mx-auto items-center">
+              <div className="flex max-w-2xl justify-between sm:flex-nowrap h-full flex-wrap mx-auto items-center">
                 <div className="space-y-5 md:order-last">
                   <h3 className="font-medium text-lg">
                     Server & Digital Solutions
@@ -111,10 +118,12 @@ export default function Feature() {
                     stay reliable as your business grows.
                   </p>
                 </div>
-                <div className="sm:-mb-[40%] -mb-[100%]">
-                  <img
+                <div className="">
+                  <LazyLoadImage
+                    effect="blur"
                     fetchPriority="high"
                     loading="eager"
+                    className="min-w-[260px] sm:min-w-[320px] md:min-w-[320px] object-contain"
                     src={serverImage}
                     alt="Server and digital solutions illustration"
                   />

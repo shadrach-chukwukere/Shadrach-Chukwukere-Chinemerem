@@ -18,7 +18,7 @@ export default function Header() {
           "linear-gradient(to bottom, var(--top-bg), var(--bottom-bg))",
       }}
     >
-      <div className="max-w-6xl mx-auto flex justify-between items-center md:px-4 px-6 py-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center md:px-4 px-6 py-4">
         {/* Logo */}
         <Logo />
 

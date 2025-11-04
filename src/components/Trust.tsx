@@ -23,7 +23,7 @@ const features = [
 export default function TrustSection() {
   return (
     <section className=" ">
-      <div className="max-w-6xl mx-auto xl:px-0 px-6 grid grid-cols-1 lg:grid-cols-5 sm:gap-0 gap-5 items-center">
+      <div className="max-w-7xl mx-auto xl:px-0 px-6 grid grid-cols-1 lg:grid-cols-5 sm:gap-0 gap-5 items-center">
         {/* Left column - copy */}
         <div className="lg:col-span-3 mb-8">
           <h2 className="sm:text-5xl text-3xl font-medium leading-tight">
