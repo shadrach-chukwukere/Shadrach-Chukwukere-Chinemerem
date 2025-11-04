@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Hero() {
   return (
     <section className="w-full pb-16 ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-12">
         {/* Right Phone Image */}
         <div
           className="flex order-first order-last"
