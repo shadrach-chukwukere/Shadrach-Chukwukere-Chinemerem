@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "@fontsource/lexend";
@@ -15,8 +14,4 @@ import "@fontsource/lexend/900";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import App from "./app";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
