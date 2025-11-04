@@ -127,7 +127,7 @@ export default function Header() {
             className="rounded-xl px-6 py-3"
           >
             <Link target="_blank" to={`mailto:${mail}`}>
-              Download
+              Get in Touch <Mail />
             </Link>
           </Button>
         </nav>
