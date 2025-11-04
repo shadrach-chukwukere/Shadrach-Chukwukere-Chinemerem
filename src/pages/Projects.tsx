@@ -1,12 +1,13 @@
 import { useState, type ReactNode } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import chekbitImage from "@/assets/chekbit.webp";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import image from "../assets/37d36618868024d8ff36564ae2376b65b2e4999d.webp";
 import { Search } from "lucide-react";
 import { RiNpmjsFill } from "react-icons/ri";
-import { githubProfile, npmProfile } from "../utility";
+import { npmProfile } from "../utility";
 import Input from "../components/ui/Input";
+import { Link } from "react-router-dom";
 
 interface Project {
   id: number;
@@ -24,7 +25,6 @@ const projects: Project[] = [
     title: "Crypto Trading App",
     description:
       "A modern crypto trading platform built with React, Node.js, and Tailwind CSS. Includes real-time price charts and secure transactions.",
-    github: `${githubProfile.url}/MyLibrary`,
     visit: npmProfile.url,
     icon: <RiNpmjsFill className="object-cover min-w-70 h-56" color="red" />,
   },
@@ -34,7 +34,6 @@ const projects: Project[] = [
     description:
       "A responsive Website that connects people freely, making love and companionship simple, safe, and meaningful.",
     image: image,
-    github: `${githubProfile.url}/huntgame`,
     visit: "https://hunt-game-pied.vercel.app/",
   },
   {
@@ -43,7 +42,6 @@ const projects: Project[] = [
     description:
       "A responsive Website to Buy, sell, and manage crypto your way with Chekbit — the secure, peer-to-peer trading platform that gives you full control over your assets.",
     image: chekbitImage,
-    github: `${githubProfile.url}/chekbit`,
     visit: "https://chekbit.vercel.app/",
   },
 ];
@@ -112,25 +110,15 @@ export default function Projects() {
                   {project?.description}
                 </p>
                 <div className="flex gap-4 mt-auto">
-                  {project?.github && (
-                    <a
-                      href={project?.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-blue-500 hover:underline"
-                    >
-                      <FaGithub /> GitHub
-                    </a>
-                  )}
                   {project?.visit && (
-                    <a
-                      href={project?.visit}
+                    <Link
+                      to={project?.visit}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-green-500 hover:underline"
                     >
                       <FaExternalLinkAlt /> Visit
-                    </a>
+                    </Link>
                   )}
                 </div>
               </div>

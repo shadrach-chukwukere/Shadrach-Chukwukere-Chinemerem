@@ -124,9 +124,9 @@ export default function Header() {
 
           <Button
             onClick={() => setIsOpen(false)}
-            className="rounded-xl px-6 py-3"
+            className="rounded-xl px-6 py-3 w-auto"
           >
-            <Link target="_blank" to={`mailto:${mail}`}>
+            <Link target="_blank" to={`mailto:${mail}`} className="flex gap-2">
               Get in Touch <Mail />
             </Link>
           </Button>
