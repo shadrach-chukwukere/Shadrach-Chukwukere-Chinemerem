@@ -5,7 +5,7 @@ declare module "*.jpeg";
 declare module "*.webp";
 declare module "*.svg";
 declare module "*.gif";
-declare module "*.webp";
+declare module "*.png";
 declare module "*.avif";
 
 declare module "@fontsource/lexend";
