@@ -1,87 +1,78 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif,
+    system-ui, sans-serif;
+
+  --color-paper: #faf9f7;
+  --color-card: #f2f0ec;
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #6b6862;
+  --color-accent: #ff4b1f;
+  --color-accent-soft: #ffe8e0;
+
+  --radius-card: 20px;
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: "Lexend", sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-body::selection {
-  background-color: #ea7527;
-  color: #ffffff;
+::selection {
+  background-color: var(--color-accent);
+  color: #fff;
 }
 
-.rotatenow {
-  rotate: -17.55deg;
-  margin-left: 50px;
-}
-
-.downhalf {
-  margin-bottom: -40%;
-}
-
-.loader-container {
-  @apply w-screen h-screen flex justify-center items-center;
-}
-
-.spinner {
-  @apply relative w-48 h-48;
-}
-
-.spinner::before {
-  content: "";
-  @apply absolute top-0 left-0 w-48 h-48 border-4 border-transparent rounded-full;
-  border-top-color: #ea7527;
-  border-right-color: #ea7527;
-  animation: spin 1s linear infinite;
-}
-
-.logo-wrapper {
-  @apply absolute inset-0 flex justify-center items-center;
-  animation: pulseScale 2s ease-in-out infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-@keyframes pulseScale {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #111;
-    color: #fff;
-  }
-  .bg2 {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  .bg3 {
-    background-color: rgba(0, 0, 0, 0.9);
-  }
-}
-
-/* Light mode styles */
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: #fff;
-    color: #000;
-  }
-  .bg2 {
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-
-  .bg3 {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
