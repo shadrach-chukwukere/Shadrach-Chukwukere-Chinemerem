@@ -32,12 +32,25 @@ export default function Projects() {
                   {project.status}
                 </span>
               )}
-              <img
-                src={project.image.src}
-                alt={project.image.alt}
-                loading="lazy"
-                className="mx-auto h-80 w-full object-contain transition-transform duration-500 group-hover:scale-[1.03] sm:h-[26rem]"
-              />
+              {project.image ? (
+                <img
+                  src={project.image.src}
+                  alt={project.image.alt}
+                  loading="lazy"
+                  className="mx-auto h-80 w-full object-contain transition-transform duration-500 group-hover:scale-[1.03] sm:h-[26rem]"
+                />
+              ) : (
+                <div
+                  role="img"
+                  aria-label={`${project.name} preview coming soon`}
+                  className="flex h-80 w-full flex-col items-center justify-center gap-3 sm:h-[26rem]"
+                >
+                  <span className="text-6xl font-extrabold tracking-tight text-ink/10">
+                    {project.name}
+                  </span>
+                  <Sparkle className="h-6 w-6 text-accent" />
+                </div>
+              )}
             </div>
 
             {/* Text */}

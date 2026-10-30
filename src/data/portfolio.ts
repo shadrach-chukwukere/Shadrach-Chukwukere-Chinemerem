@@ -5,7 +5,6 @@ import serverIllustration from "@/assets/server.webp";
 import chekbitP2p from "@/assets/chekbit-p2p.webp";
 import chekbitWallets from "@/assets/chekbit-wallets.webp";
 import chekbitHome from "@/assets/chekbit-home.webp";
-import chekbitOrder from "@/assets/chekbit-order.webp";
 import chekbitRelease from "@/assets/chekbit-release.webp";
 
 export const profile = {
@@ -157,7 +156,7 @@ export interface Project {
   tech: string[];
   live?: string;
   github?: string;
-  image: { src: string; alt: string };
+  image?: { src: string; alt: string };
   status?: string;
 }
 
@@ -170,7 +169,6 @@ export const projects: Project[] = [
       "A learning platform product currently in development. Case study and screenshots coming soon.",
     contribution: "Full-stack development",
     tech: ["React", "TypeScript", "FastAPI"],
-    image: { src: chekbitOrder, alt: "SabiFlex preview coming soon" },
     status: "Coming soon",
   },
   {
@@ -205,7 +203,6 @@ export const projects: Project[] = [
     contribution: "Designed and built the responsive marketing website.",
     tech: ["React", "Tailwind CSS"],
     live: "https://hunt-game-pied.vercel.app/",
-    image: { src: chekbitWallets, alt: "HuntGame website" },
   },
 ];
 
