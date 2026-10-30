@@ -6,10 +6,6 @@ export default function About() {
     <section id="about" className="bg-white py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
         <Reveal>
-          <p className="mb-3 flex items-center gap-2 text-sm font-semibold tracking-wide text-ink-soft uppercase">
-            <span className="h-px w-6 bg-ink-soft" aria-hidden="true" />
-            About Me
-          </p>
           <h2 className="text-3xl leading-tight font-extrabold tracking-tight sm:text-4xl">
             {about.headline}
           </h2>
@@ -42,9 +38,9 @@ export default function About() {
               </p>
             </div>
             <div className="mt-6 rounded-card bg-ink p-8 text-white">
-              <p className="text-4xl font-extrabold">4</p>
+              <p className="text-2xl font-extrabold">Across the stack</p>
               <p className="mt-2 text-sm font-medium text-white/60">
-                Shipped products — web, mobile &amp; APIs
+                Projects across web, mobile and APIs
               </p>
             </div>
             <div className="-mt-6 rounded-card bg-accent p-8 text-white">
@@ -53,15 +49,15 @@ export default function About() {
                 <Sparkle className="ml-1 inline-block h-4 w-4" />
               </p>
               <p className="mt-2 text-sm font-medium text-white/80">
-                Working with clients and teams worldwide
+                {profile.availability}
               </p>
             </div>
             <div className="rounded-card border border-ink/10 p-8">
               <p className="text-2xl leading-tight font-extrabold">
-                Web · Mobile · Backend
+                Web, mobile and backend
               </p>
               <p className="mt-2 text-sm font-medium text-ink-soft">
-                One developer across the whole product surface
+                One developer across web, mobile and backend
               </p>
             </div>
           </div>

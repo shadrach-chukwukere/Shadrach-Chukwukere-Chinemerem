@@ -21,7 +21,7 @@ const emailjsConfig = {
 };
 
 const inputClass =
-  "w-full rounded-2xl border border-ink/10 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 outline-none transition-colors focus:border-accent";
+  "w-full rounded-2xl border border-ink/10 bg-white px-4 py-3 text-base text-ink placeholder:text-ink-soft sm:text-sm outline-none transition-colors focus:border-accent";
 
 export default function Contact() {
   const {
@@ -38,6 +38,12 @@ export default function Contact() {
   );
 
   const onSubmit = async (values: FormValues) => {
+    if (!navigator.onLine) {
+      const subject = encodeURIComponent(`Portfolio enquiry from ${values.name}`);
+      const body = encodeURIComponent(`${values.message}\n\nReply to: ${values.email}`);
+      window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+      return;
+    }
     if (!configured) {
       const subject = encodeURIComponent(
         `Portfolio enquiry from ${values.name}`
@@ -70,10 +76,6 @@ export default function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
       <Reveal>
-        <p className="mb-3 flex items-center gap-2 text-sm font-semibold tracking-wide text-ink-soft uppercase">
-          <span className="h-px w-6 bg-ink-soft" aria-hidden="true" />
-          Contact
-        </p>
         <h2 className="max-w-3xl text-3xl leading-tight font-extrabold tracking-tight sm:text-5xl">
           Have a project in mind?{" "}
           <span className="text-accent">Let&apos;s build something great.</span>
@@ -108,7 +110,7 @@ export default function Contact() {
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-2 text-sm font-medium text-white/85 hover:text-accent"
+                      className="group inline-flex min-h-11 items-center gap-2 text-sm font-medium text-white/85 hover:text-accent"
                     >
                       {s.label}
                       <span className="text-white/40 group-hover:text-accent">
@@ -141,11 +143,15 @@ export default function Contact() {
                 type="text"
                 autoComplete="name"
                 placeholder="Your name"
+                required
+                aria-required="true"
                 className={inputClass}
+                aria-invalid={Boolean(errors.name)}
+                aria-describedby={errors.name ? "contact-name-error" : undefined}
                 {...register("name")}
               />
               {errors.name && (
-                <p className="mt-1.5 text-xs font-medium text-accent">
+                <p id="contact-name-error" className="mt-1.5 text-xs font-medium text-accent" role="alert">
                   {errors.name.message}
                 </p>
               )}
@@ -162,11 +168,15 @@ export default function Contact() {
                 type="email"
                 autoComplete="email"
                 placeholder="you@example.com"
+                required
+                aria-required="true"
                 className={inputClass}
+                aria-invalid={Boolean(errors.email)}
+                aria-describedby={errors.email ? "contact-email-error" : undefined}
                 {...register("email")}
               />
               {errors.email && (
-                <p className="mt-1.5 text-xs font-medium text-accent">
+                <p id="contact-email-error" className="mt-1.5 text-xs font-medium text-accent" role="alert">
                   {errors.email.message}
                 </p>
               )}
@@ -181,12 +191,16 @@ export default function Contact() {
               <textarea
                 id="contact-message"
                 rows={5}
-                placeholder="Tell me about your project…"
-                className={`${inputClass} resize-none`}
+                placeholder="Tell me about your project..."
+                required
+                aria-required="true"
+                className={`${inputClass} resize-y`}
+                aria-invalid={Boolean(errors.message)}
+                aria-describedby={errors.message ? "contact-message-error" : undefined}
                 {...register("message")}
               />
               {errors.message && (
-                <p className="mt-1.5 text-xs font-medium text-accent">
+                <p id="contact-message-error" className="mt-1.5 text-xs font-medium text-accent" role="alert">
                   {errors.message.message}
                 </p>
               )}
@@ -194,15 +208,14 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold text-white transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 active:scale-[0.98] disabled:cursor-wait disabled:opacity-60 disabled:hover:scale-100"
             >
               {isSubmitting ? "Sending…" : "Send Message"}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
             {!configured && (
               <p className="text-center text-xs text-ink-soft">
-                Submitting opens your mail app — or add EmailJS keys to{" "}
-                <code>.env.local</code> for direct sending.
+                Submitting opens a new email draft in your mail app.
               </p>
             )}
           </form>

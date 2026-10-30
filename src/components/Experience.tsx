@@ -6,22 +6,18 @@ export default function Experience() {
     <section id="experience" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
-          <p className="mb-3 flex items-center gap-2 text-sm font-semibold tracking-wide text-ink-soft uppercase">
-            <span className="h-px w-6 bg-ink-soft" aria-hidden="true" />
-            Where I&apos;ve Worked
-          </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             My <span className="text-accent">Experience</span>
             <Sparkle className="ml-2 inline-block h-4 w-4 text-accent" />
           </h2>
         </Reveal>
 
-        <ol className="relative mt-12 flex flex-col gap-12 border-l-2 border-card pl-8 sm:pl-10">
+        <ol className="relative mt-12 flex flex-col gap-12 border-l border-ink/15 pl-8 sm:pl-10">
           {experiences.map((exp, i) => (
             <Reveal as="li" key={exp.company} delay={i * 100} className="relative">
               <span
                 aria-hidden="true"
-                className="absolute top-1.5 -left-[41px] h-4 w-4 rounded-full border-4 border-accent bg-white sm:-left-[49px]"
+                className="absolute top-1.5 -left-[41px] h-3 w-3 rounded-full border-2 border-accent bg-white sm:-left-[49px]"
               />
               <p className="text-sm font-semibold tracking-wide text-ink-soft uppercase">
                 {exp.period}

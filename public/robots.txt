@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shadrach-chukwukere-chinemerem.vercel.app/sitemap.xml

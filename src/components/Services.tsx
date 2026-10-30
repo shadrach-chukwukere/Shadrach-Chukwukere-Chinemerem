@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { services } from "@/data/portfolio";
-import { Sparkle, ArrowUpRight, Reveal } from "./decor";
+import { Sparkle, ArrowUpRight, ChevronUp, Reveal } from "./decor";
 
 export default function Services() {
   const [openId, setOpenId] = useState<string>(services[0].id);
@@ -18,7 +18,7 @@ export default function Services() {
             <Sparkle className="ml-2 inline-block h-4 w-4 text-accent" />
           </h2>
           <p className="max-w-sm text-sm leading-relaxed text-ink-soft">
-            From interface to infrastructure — focused engineering across the
+            From interface to infrastructure, with focused engineering across the
             web and mobile stack.
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function Services() {
                   onClick={() => setOpenId(open ? "" : service.id)}
                   aria-expanded={open}
                   aria-controls={`panel-${service.id}`}
-                  className="flex w-full items-center gap-4 px-5 py-5 text-left sm:px-8 sm:py-6"
+                  className="flex min-h-16 w-full items-center gap-4 px-5 py-5 text-left sm:px-8 sm:py-6"
                 >
                   <span
                     className={`text-sm font-semibold ${open ? "text-white/50" : "text-ink-soft"}`}
@@ -58,16 +58,7 @@ export default function Services() {
                     aria-hidden="true"
                   >
                     {open ? (
-                      <svg
-                        viewBox="0 0 24 24"
-                        className="h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      >
-                        <path d="M6 15l6-6 6 6" />
-                      </svg>
+                      <ChevronUp className="h-4 w-4" />
                     ) : (
                       <ArrowUpRight className="h-4 w-4" />
                     )}
@@ -76,6 +67,7 @@ export default function Services() {
 
                 <div
                   id={`panel-${service.id}`}
+                  aria-hidden={!open}
                   className="grid transition-[grid-template-rows] duration-500 ease-out"
                   style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
                 >

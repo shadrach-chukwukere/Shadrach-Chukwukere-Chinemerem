@@ -27,17 +27,12 @@ export default function Projects() {
           >
             {/* Visual */}
             <div className="group relative overflow-hidden rounded-card bg-card">
-              {project.status && (
-                <span className="absolute top-4 left-4 z-10 rounded-full bg-accent px-3 py-1 text-xs font-bold text-white">
-                  {project.status}
-                </span>
-              )}
               {project.image ? (
                 <img
                   src={project.image.src}
                   alt={project.image.alt}
                   loading="lazy"
-                  className="mx-auto h-80 w-full object-contain transition-transform duration-500 group-hover:scale-[1.03] sm:h-[26rem]"
+                  className="mx-auto aspect-[4/3] h-80 w-full object-contain transition-transform duration-500 group-hover:scale-[1.02] sm:h-[26rem]"
                 />
               ) : (
                 <div
@@ -56,11 +51,16 @@ export default function Projects() {
             {/* Text */}
             <div className="lg:px-6">
               <p className="text-sm font-semibold tracking-widest text-ink-soft uppercase">
-                {project.year} — {project.contribution}
+                {project.year} / {project.contribution}
               </p>
               <h3 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">
                 {project.name}
               </h3>
+              {project.status && (
+                <p className="mt-2 text-sm font-semibold text-accent">
+                  {project.status}
+                </p>
+              )}
               <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-soft">
                 {project.summary}
               </p>

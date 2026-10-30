@@ -13,7 +13,7 @@ export const profile = {
   role: "Lead Frontend & Mobile App Developer",
   location: "Nigeria",
   intro:
-    "I build modern web applications, cross-platform mobile apps, and scalable digital products — from pixel-level UI to production-ready APIs.",
+    "I build modern web applications, cross-platform mobile apps, and scalable digital products - from pixel-level UI to production-ready APIs.",
   email: "shadrachchukwukerechinemerem@gmail.com",
   phone: "+2349038030895",
   portrait: { src: portrait, alt: "Photo of Shadrach Chukwukere" },
@@ -84,7 +84,7 @@ export const services: Service[] = [
     id: "mobile",
     title: "Mobile Application Development",
     description:
-      "Cross-platform iOS and Android apps with React Native and Expo — one codebase, native feel, and store-ready releases.",
+      "Cross-platform iOS and Android apps with React Native and Expo - one codebase, native feel, and store-ready releases.",
     deliverables: [
       "React Native / Expo apps from scratch",
       "Navigation, gestures & native modules",
@@ -98,7 +98,7 @@ export const services: Service[] = [
     id: "backend",
     title: "Backend Development",
     description:
-      "Pragmatic APIs and data layers with Python, FastAPI, Node.js and Supabase — auth, payments, realtime and everything a product needs behind the scenes.",
+      "Pragmatic APIs and data layers with Python, FastAPI, Node.js and Supabase - auth, payments, realtime and everything a product needs behind the scenes.",
     deliverables: [
       "REST & realtime API design",
       "Authentication & authorization",
@@ -126,7 +126,7 @@ export const services: Service[] = [
     id: "fullstack",
     title: "Full-Stack Development",
     description:
-      "End-to-end product delivery: frontend, backend, infrastructure and release — a single developer who can take a feature from idea to production.",
+      "End-to-end product delivery: frontend, backend, infrastructure and release - a single developer who can take a feature from idea to production.",
     deliverables: [
       "Complete MVP builds",
       "CI/CD & Vercel deployments",
@@ -167,7 +167,7 @@ export const projects: Project[] = [
     name: "Chekbit",
     year: "2025",
     summary:
-      "Peer-to-peer crypto trading platform — buy, sell and send crypto with escrow-protected offers, realtime portfolios and dispute handling.",
+      "Peer-to-peer crypto trading platform - buy, sell and send crypto with escrow-protected offers, realtime portfolios and dispute handling.",
     contribution:
       "Built the responsive marketing site and core product UI: P2P order flows, wallets, and escrow release screens.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
@@ -210,7 +210,7 @@ export const experiences: ExperienceItem[] = [
   {
     role: "Junior Frontend Developer",
     company: "Mortalweb",
-    period: "2024 — Present",
+    period: "2024 - Present",
     description:
       "Building and maintaining production web interfaces with a focus on component quality, responsiveness and performance.",
     highlights: [
@@ -223,9 +223,9 @@ export const experiences: ExperienceItem[] = [
   {
     role: "Independent Software Developer",
     company: "Freelance & personal products",
-    period: "2023 — Present",
+    period: "2023 - Present",
     description:
-      "Delivering end-to-end web and mobile products for clients and my own ideas — from architecture and API design to store releases.",
+      "Delivering end-to-end web and mobile products for clients and my own ideas - from architecture and API design to store releases.",
     highlights: [
       "Built Chekbit's P2P crypto trading interfaces and marketing site",
       "Developed cross-platform mobile apps with React Native and Expo",
@@ -236,9 +236,9 @@ export const experiences: ExperienceItem[] = [
 ];
 
 export const about = {
-  headline: "Two years of shipping real products — web and mobile.",
+  headline: "Two years building real products for web and mobile.",
   paragraphs: [
-    "I'm a software engineer based in Nigeria with over two years of experience building web and mobile applications. I work across the stack but care most about the layer people actually touch — the interface.",
+    "I'm a software engineer based in Nigeria with over two years of experience building web and mobile applications. I work across the stack but care most about the layer people actually touch - the interface.",
     "My day-to-day: React and TypeScript on the web, React Native and Expo on mobile, FastAPI and Supabase behind the scenes. I think about software architecture early, profile what's slow, and ship practical products rather than demos.",
   ],
   focusAreas: [

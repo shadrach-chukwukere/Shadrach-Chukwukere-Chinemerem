@@ -1,34 +1,16 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { ArrowUpRight as ArrowIcon, ChevronUp as ChevronUpIcon, Sparkles as SparkleIcon } from "lucide-react";
 
 export function Sparkle({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M12 0c.7 5.6 5.7 10.6 12 12-6.3 1.4-11.3 6.4-12 12-.7-5.6-5.7-10.6-12-12C6.3 10.6 11.3 5.6 12 0Z" />
-    </svg>
-  );
+  return <SparkleIcon aria-hidden="true" className={className} strokeWidth={1.8} />;
 }
 
 export function ArrowUpRight({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M7 17 17 7" />
-      <path d="M8 7h9v9" />
-    </svg>
-  );
+  return <ArrowIcon aria-hidden="true" className={className} strokeWidth={1.8} />;
+}
+
+export function ChevronUp({ className = "" }: { className?: string }) {
+  return <ChevronUpIcon aria-hidden="true" className={className} strokeWidth={1.8} />;
 }
 
 export function Reveal({
@@ -44,10 +26,17 @@ export function Reveal({
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
+  const [supportsMotion, setSupportsMotion] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const motionAllowed = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!motionAllowed || !("IntersectionObserver" in window)) {
+      setVisible(true);
+      return;
+    }
+    setSupportsMotion(true);
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -64,7 +53,7 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`}
+      className={`reveal ${supportsMotion && !visible ? "is-pending" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
