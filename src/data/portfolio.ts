@@ -44,15 +44,6 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const heroSkillTags = [
-  "React",
-  "TypeScript",
-  "React Native",
-  "Expo",
-  "FastAPI",
-  "UI Engineering",
-];
-
 export const marqueeItems = [
   "React",
   "TypeScript",
